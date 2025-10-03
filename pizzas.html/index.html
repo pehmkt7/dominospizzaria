@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Pizzas - Domino's Pizza</title>
+    <meta name="description" content="Monte sua pizza escolhendo o tamanho e seus sabores favoritos.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/dominos-pizza-logo.png" type="image/png">
+    
+    <meta name="theme-color" content="#006491">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; scroll-behavior: smooth; }
+        .font-dominos { font-family: 'Oswald', sans-serif; }
+        .dominos-blue-text { color: #006491; }
+        .bg-dominos-blue { background-color: #006491; }
+        .bg-dominos-red { background-color: #E31837; }
+        .hover\:bg-dominos-red-dark:hover { background-color: #c8102a; }
+        
+        .choice-btn.selected, .size-btn.selected { background-color: #006491; color: white; }
+        .flavor-item.selected {
+            border-color: #006491;
+            box-shadow: 0 0 0 3px rgba(0, 100, 145, 0.4);
+            background-color: #eff6ff;
+        }
+        .flavor-item, .size-btn { cursor: pointer; }
+        button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .header-toggle .chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        .selection-block.open .collapsible-content {
+            max-height: 2500px;
+        }
+        .selection-block.open .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Cabeçalho -->
+    <header id="topo" class="sticky top-0 z-20">
+        <div class="bg-dominos-blue text-white p-3 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-2xl w-8 text-left" title="Voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="index.html" title="Página Inicial">
+                    <img src="images/dominos-pizza-logo.png" alt="Logotipo da Domino's" class="h-8">
+                </a>
+                <a href="#" title="Verificar localização" class="text-2xl w-8 text-right">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto p-4 max-w-4xl pb-32">
+        
+        <div class="text-center my-4">
+            <h1 class="text-3xl font-bold font-dominos dominos-blue-text">MONTE SUA PIZZA</h1>
+        </div>
+
+        <!-- Tamanho -->
+        <section class="selection-block open mb-4" data-selection-number="1">
+            <div class="header-toggle flex justify-between items-center bg-white p-4 rounded-lg shadow-md cursor-pointer">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="bg-dominos-red text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">1</span>
+                    ESCOLHA O TAMANHO
+                </h2>
+                <div class="summary-display text-sm text-gray-500 font-semibold truncate px-2"></div>
+                <i class="chevron fas fa-chevron-down transform transition-transform"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="p-4 bg-gray-50 rounded-b-lg">
+                    <div class="flex justify-center gap-4 mb-4">
+                        <button class="size-btn w-full sm:w-1/3 p-2 font-bold rounded-lg bg-white shadow-md flex flex-col" data-size="brotinho" data-price="20.00">
+                            <span>Brotinho</span>
+                            <span class="text-xs font-normal">R$ 20,00</span>
+                        </button>
+                        <button class="size-btn w-full sm:w-1/3 p-2 font-bold rounded-lg bg-white shadow-md flex flex-col" data-size="media" data-price="35.00">
+                            <span>Média</span>
+                            <span class="text-xs font-normal">R$ 35,00</span>
+                        </button>
+                        <button class="size-btn w-full sm:w-1/3 p-2 font-bold rounded-lg bg-white shadow-md flex flex-col" data-size="grande" data-price="50.00">
+                            <span>Grande</span>
+                             <span class="text-xs font-normal">R$ 50,00</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sabor -->
+        <section class="selection-block" data-selection-number="2">
+             <div class="header-toggle flex justify-between items-center bg-white p-4 rounded-lg shadow-md cursor-pointer">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="bg-dominos-red text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">2</span>
+                    ESCOLHA O SABOR
+                </h2>
+                <div class="summary-display text-sm text-gray-500 font-semibold truncate px-2"></div>
+                <i class="chevron fas fa-chevron-down transform transition-transform"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="p-4 bg-gray-50 rounded-b-lg">
+                    <div class="choice-buttons flex justify-center gap-4 mb-4">
+                        <button class="choice-btn w-full sm:w-1/2 p-3 font-bold rounded-lg bg-white shadow-md" data-type="inteira">Sabor Inteiro</button>
+                        <button class="choice-btn w-full sm:w-1/2 p-3 font-bold rounded-lg bg-white shadow-md" data-type="meia">Meia a Meia</button>
+                    </div>
+                    <div class="content-area"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Fixo -->
+    <footer class="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t-2 border-gray-200 p-4 z-30">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div id="summary" class="text-center sm:text-left text-sm">
+                <p id="summary-pizza">Sua Pizza: <span>Aguardando seleção...</span></p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="price-display" class="font-bold text-xl dominos-blue-text">R$ 0,00</span>
+                <button id="finish-order-btn" class="bg-dominos-red text-white font-bold text-lg py-3 px-8 rounded-lg transition-colors" disabled="">
+                    FINALIZAR PEDIDO
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkoutLinks = {
+                grande: 'https://app.nivopayoficial.com.br/checkout/1e805779-fdcd-49b9-91af-3eb895e15e74',
+                media: 'https://app.nivopayoficial.com.br/checkout/c6f178c0-8dc3-4e1f-8a59-d25b4ed8c328',
+                brotinho: 'https://app.nivopayoficial.com.br/checkout/494a7f98-899b-4a4e-ae56-e2673f5bd742'
+            };
+
+            const allFlavors = {
+                classicas: [
+                    { id: '4-queijos', name: '4 Queijos', description: 'Queijo, requeijão, gorgonzola, oregano e parmesão ralado.'},
+                    { id: 'bauru', name: 'Bauru', description: 'Queijo, presunto, requeijão, oregano e tomate.'},
+                    { id: 'catuperoni', name: 'Catuperoni', description: 'Queijo, pepperoni, requeijão, oregano e parmesão ralado.'},
+                    { id: 'frango-caipira', name: 'Frango Caipira', description: 'Queijo, frango desfiado, milho, catupiry e orégano.'},
+                    { id: 'cheddar-bacon', name: 'Cheddar & Bacon', description: 'Queijo, molho sabor queijo cheddar, bacon e orégano.'},
+                    { id: 'corn-bacon', name: 'Corn & Bacon', description: 'Queijo, bacon, oregano e milho.'},
+                    { id: 'mussarela', name: 'Mussarela', description: 'Queijo e orégano. Simplesmente, a maior.'},
+                    { id: 'napolitana', name: 'Napolitana', description: 'Queijo, tomate, oregano e parmesão ralado.'},
+                    { id: 'pepperoni', name: 'Pepperoni', description: 'Queijo e pepperoni.'},
+                ],
+                especiais: [
+                    { id: 'america', name: 'América', description: 'Queijo, pepperoni, champignon, cebola, oregano e pimentão verde.' },
+                    { id: 'calabresa-especial', name: 'Calabresa Especial', description: 'Queijo, azeitona preta, calabresa, cebola, oregano e Cream Cheese.' },
+                    { id: 'carne-seca', name: 'Carne Seca com Cream Cheese', description: 'Queijo, cebola, carne seca desfiada, cream cheese e orégano.' },
+                    { id: 'extravaganzza', name: 'Extravaganzza', description: 'Queijo, pepperoni, presunto, azeitona preta, champignon, cebola, oregano e pimentão verde.' },
+                    { id: 'frango-grelhado', name: 'Frango Grelhado', description: 'Queijo, frango, requeijão, tomate, azeitona preta, oregano e manjericão.' },
+                    { id: 'la-bianca', name: 'La Bianca', description: 'Queijo, muçarela de vaca e búfala, requeijão, parmesão ralado, orégano e manjericão.' },
+                    { id: 'meat-bacon', name: 'Meat & Bacon', description: 'Queijo, bacon, calabresa, pepperoni, oregano e presunto.' },
+                    { id: 'portuguesa', name: 'Portuguesa', description: 'Queijo, presunto, ovo de codorna, azeitona preta, cebola, oregano e pimentão verde.' },
+                    { id: 'pepperrock', name: 'Pepperrock', description: 'Queijo, pepperoni, azeitona preta, parmesão ralado, orégano, alho granulado e cream cheese.' },
+                ]
+            };
+
+            const summaryPizzaEl = document.querySelector('#summary-pizza span');
+            const priceDisplayEl = document.getElementById('price-display');
+            const finishBtn = document.getElementById('finish-order-btn');
+            
+            let selections = { size: null, pizza: null, price: 0 };
+
+            document.querySelectorAll('.selection-block').forEach(block => {
+                const selectionNumber = parseInt(block.dataset.selectionNumber, 10);
+                const header = block.querySelector('.header-toggle');
+                
+                header.addEventListener('click', () => {
+                    if (selectionNumber > 1 && !isSelectionReady(selectionNumber - 1)) return;
+                    
+                    document.querySelectorAll('.selection-block.open').forEach(openBlock => {
+                        if(openBlock !== block) openBlock.classList.remove('open');
+                    });
+                    block.classList.toggle('open');
+                });
+
+                if (selectionNumber === 1) { // Bloco de Tamanho
+                    block.querySelectorAll('.size-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            selections.size = btn.dataset.size;
+                            selections.price = parseFloat(btn.dataset.price);
+                            block.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                            btn.classList.add('selected');
+                            handleSelectionComplete(1);
+                        });
+                    });
+                } else if (selectionNumber === 2) { // Bloco de Sabor
+                    const contentArea = block.querySelector('.content-area');
+                     block.querySelectorAll('.choice-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            selections.pizza = null;
+                            block.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+                            btn.classList.add('selected');
+                            contentArea.innerHTML = '';
+                            const type = btn.dataset.type;
+                            if (type === 'inteira') renderInteira(contentArea);
+                            else if (type === 'meia') renderMeia(contentArea);
+                            updateUI();
+                        });
+                    });
+                }
+            });
+
+            function renderFlavorList(container, title, clickHandler) {
+                const titleElement = document.createElement('h3');
+                titleElement.className = 'flavor-list-title font-bold text-lg mt-4 text-center text-gray-700';
+                titleElement.textContent = title;
+                container.appendChild(titleElement);
+                
+                const listContainer = document.createElement('div');
+                listContainer.className = 'space-y-3 mt-2';
+                
+                Object.keys(allFlavors).forEach(category => {
+                    listContainer.innerHTML += `<h4 class="font-semibold text-gray-600 pl-1 pt-2">${category.charAt(0).toUpperCase() + category.slice(1)}</h4>`;
+                    allFlavors[category].forEach(flavor => {
+                        listContainer.innerHTML += clickHandler(flavor);
+                    });
+                });
+                container.appendChild(listContainer);
+                return titleElement;
+            }
+
+            function renderInteira(container) {
+                renderFlavorList(container, 'ESCOLHA O SABOR', (flavor) => 
+                    `<div class="flavor-item flex items-center bg-white p-3 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent" data-name="${flavor.name}" data-id="${flavor.id}">
+                        <img src="assets/images/${flavor.id}.png" alt="Imagem da pizza ${flavor.name}" class="w-16 h-16 rounded-md object-cover mr-4" onerror="this.src='https://placehold.co/100x100/E31837/FFFFFF?text=Pizza'">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg">${flavor.name}</h3>
+                            <p class="text-sm text-gray-500">${flavor.description}</p>
+                        </div>
+                    </div>`
+                );
+                container.querySelectorAll('.flavor-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        selections.pizza = { type: 'inteira', name: item.dataset.name };
+                        handleSelectionComplete(2);
+                    });
+                });
+            }
+
+            function renderMeia(container) {
+                const selectionData = { half1: null, half2: null };
+                function renderHalf(halfNumber) {
+                    container.innerHTML = ''; 
+                    if (halfNumber === 2 && selectionData.half1) {
+                         container.innerHTML += `<p class="text-center font-semibold p-4 bg-blue-100 rounded-lg mb-4">1ª Metade: <span class="font-bold dominos-blue-text">${selectionData.half1.name}</span></p>`;
+                    }
+                    const titleEl = renderFlavorList(container, `ESCOLHA A ${halfNumber}ª METADE`, (flavor) => 
+                         `<div class="flavor-item flex items-center bg-white p-3 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent" data-name="${flavor.name}" data-id="${flavor.id}">
+                             <img src="assets/images/${flavor.id}.png" alt="Imagem da pizza ${flavor.name}" class="w-16 h-16 rounded-md object-cover mr-4" onerror="this.src='https://placehold.co/100x100/E31837/FFFFFF?text=Pizza'">
+                             <div class="flex-1">
+                                <h3 class="font-bold text-lg">${flavor.name}</h3>
+                                <p class="text-sm text-gray-500">${flavor.description}</p>
+                             </div>
+                        </div>`
+                    );
+                    if (halfNumber === 2) titleEl.scrollIntoView({ behavior: 'smooth', block: 'center'});
+                    container.querySelectorAll('.flavor-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            selectionData[`half${halfNumber}`] = { name: item.dataset.name };
+                            if (halfNumber === 1) renderHalf(2);
+                            else {
+                                selections.pizza = { type: 'meia', name: `Meia ${selectionData.half1.name} / Meia ${selectionData.half2.name}`, half1: selectionData.half1.name, half2: selectionData.half2.name };
+                                handleSelectionComplete(2);
+                            }
+                        });
+                    });
+                }
+                renderHalf(1);
+            }
+            
+            function isSelectionReady(selectionNumber) {
+                 if(selectionNumber === 1) return !!selections.size;
+                 if(selectionNumber === 2) {
+                     const pizza = selections.pizza;
+                     return pizza && (pizza.type === 'inteira' || (pizza.type === 'meia' && pizza.half1 && pizza.half2));
+                 }
+                 return false;
+            }
+            
+            function handleSelectionComplete(selectionNumber) {
+                updateUI();
+                const currentBlock = document.querySelector(`[data-selection-number="${selectionNumber}"]`);
+                const nextBlock = document.querySelector(`[data-selection-number="${selectionNumber + 1}"]`);
+
+                if (isSelectionReady(selectionNumber) && nextBlock) {
+                    currentBlock.classList.remove('open');
+                    nextBlock.classList.add('open');
+                    setTimeout(() => {
+                        nextBlock.querySelector('.header-toggle').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                }
+            }
+
+            function updateUI() {
+                const pizzaName = selections.pizza ? selections.pizza.name : 'Aguardando seleção...';
+                const sizeName = selections.size ? ` (${selections.size.charAt(0).toUpperCase() + selections.size.slice(1)})` : '';
+                summaryPizzaEl.textContent = `${pizzaName}${sizeName}`;
+                priceDisplayEl.textContent = `R$ ${selections.price.toFixed(2).replace('.', ',')}`;
+                
+                document.querySelector(`[data-selection-number="1"] .summary-display`).textContent = selections.size ? selections.size.charAt(0).toUpperCase() + selections.size.slice(1) : '';
+                document.querySelector(`[data-selection-number="2"] .summary-display`).textContent = selections.pizza ? selections.pizza.name : '';
+                
+                if (isSelectionReady(1) && isSelectionReady(2)) {
+                    finishBtn.disabled = false;
+                } else {
+                    finishBtn.disabled = true;
+                }
+            }
+
+            finishBtn.addEventListener('click', () => {
+                if (!finishBtn.disabled) {
+                    const selectedSize = selections.size;
+                    if (selectedSize && checkoutLinks[selectedSize]) {
+                        window.location.href = checkoutLinks[selectedSize];
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

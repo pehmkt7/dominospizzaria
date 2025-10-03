@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Sobremesas - Domino's Pizza</title>
+    <meta name="description" content="Escolha sua sobremesa favorita.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/dominos-pizza-logo.png" type="image/png">
+    
+    <meta name="theme-color" content="#006491">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
+        .font-dominos { font-family: 'Oswald', sans-serif; }
+        .dominos-blue-text { color: #006491; }
+        .bg-dominos-blue { background-color: #006491; }
+        .bg-dominos-red { background-color: #E31837; }
+        .hover\:bg-dominos-red-dark:hover { background-color: #c8102a; }
+        
+        .product-item.selected {
+            border-color: #006491;
+            box-shadow: 0 0 0 3px rgba(0, 100, 145, 0.4);
+            background-color: #eff6ff;
+        }
+        .product-item { cursor: pointer; }
+        button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <header id="topo" class="sticky top-0 z-20">
+        <div class="bg-dominos-blue text-white p-3 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-2xl w-8 text-left" title="Voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="index.html" title="Página Inicial">
+                    <img src="images/dominos-pizza-logo.png" alt="Logotipo da Domino's" class="h-8">
+                </a>
+                <a href="#" title="Verificar localização" class="text-2xl w-8 text-right">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 max-w-4xl pb-32">
+        
+        <div class="text-center my-4">
+            <h1 class="text-3xl font-bold font-dominos dominos-blue-text">CARDÁPIO DE SOBREMESAS</h1>
+        </div>
+
+        <section id="desserts-list" class="space-y-3">
+             </section>
+    </main>
+
+    <footer class="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t-2 border-gray-200 p-4 z-30">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div id="summary" class="text-center sm:text-left text-sm">
+                <p id="summary-product">Seu Pedido: <span>Aguardando seleção...</span></p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="price-display" class="font-bold text-xl dominos-blue-text">R$ 0,00</span>
+                <button id="finish-order-btn" class="bg-dominos-red text-white font-bold text-lg py-3 px-8 rounded-lg transition-colors" disabled="">
+                    FINALIZAR PEDIDO
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const desserts = [
+                { name: 'Chocobread', description: 'Massa finíssima recheada com muito chocolate e cobertura de creme de baunilha.', price: 21.00 },
+                { name: 'Canela Bites', description: '16 pedaços de massa pan, envoltos em açúcar e canela, com cobertura de doce de leite.', price: 21.00 },
+                { name: 'Pizza Brotinho de Brigadeiro', description: 'A nossa deliciosa pizza brotinho com muito brigadeiro e granulado.', price: 21.00 },
+                { name: 'Pizza Brotinho Ovomaltine', description: 'Pizza brotinho com creme de baunilha e Ovomaltine crocante.', price: 21.00 },
+                { name: 'Duo', description: 'Metade Chocobread e metade Canela Bites.', price: 21.00 }
+            ];
+
+            const productListContainer = document.getElementById('desserts-list');
+            const summaryProductEl = document.querySelector('#summary-product span');
+            const priceDisplayEl = document.getElementById('price-display');
+            const finishBtn = document.getElementById('finish-order-btn');
+            
+            let selection = null;
+
+            // Renderiza a lista de sobremesas
+            desserts.forEach(dessert => {
+                const item = document.createElement('div');
+                item.className = 'product-item bg-white p-4 rounded-lg shadow-sm transition-all duration-300 border-2 border-transparent';
+                item.dataset.name = dessert.name;
+                item.dataset.price = dessert.price;
+
+                item.innerHTML = `
+                    <h3 class="font-bold text-lg">${dessert.name}</h3>
+                    <p class="text-sm text-gray-500">${dessert.description}</p>
+                    <p class="font-bold text-right mt-2 dominos-blue-text">R$ ${dessert.price.toFixed(2).replace('.', ',')}</p>
+                `;
+                
+                item.addEventListener('click', () => {
+                    // Atualiza a seleção
+                    selection = {
+                        name: item.dataset.name,
+                        price: parseFloat(item.dataset.price)
+                    };
+
+                    // Atualiza a interface
+                    document.querySelectorAll('.product-item').forEach(el => el.classList.remove('selected'));
+                    item.classList.add('selected');
+                    updateUI();
+                });
+
+                productListContainer.appendChild(item);
+            });
+
+            function updateUI() {
+                if (selection) {
+                    summaryProductEl.textContent = selection.name;
+                    priceDisplayEl.textContent = `R$ ${selection.price.toFixed(2).replace('.', ',')}`;
+                    finishBtn.disabled = false;
+                } else {
+                    summaryProductEl.textContent = 'Aguardando seleção...';
+                    priceDisplayEl.textContent = 'R$ 0,00';
+                    finishBtn.disabled = true;
+                }
+            }
+            
+            finishBtn.addEventListener('click', () => {
+                if (!finishBtn.disabled) {
+                    window.location.href = 'https://app.nivopayoficial.com.br/checkout/44109758-6347-4447-b3ed-b8c1b172f8bd';
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
